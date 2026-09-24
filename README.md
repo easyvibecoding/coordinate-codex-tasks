@@ -4,7 +4,7 @@
 
 **A Codex skill for delegating work to separate Codex Tasks while the original Task stays responsible for coordination and verification.** It creates one dedicated, state-aware heartbeat per delegated Task, keeps each monitor scoped to its own Task, and pauses it when the work is verified complete or needs a user decision.
 
-[繁體中文](README.zh-TW.md) · [Skill instructions](SKILL.md) · [Verification record](docs/verification.md)
+[繁體中文](README.zh-TW.md) · [Prompt examples](docs/examples.md) · [Skill instructions](SKILL.md) · [Verification record](docs/verification.md)
 
 This is an independent community skill. It is not an official OpenAI product.
 
@@ -44,6 +44,8 @@ Use $coordinate-codex-tasks. Create a separate Codex Task to implement the parse
 ```
 
 For an independent Task that you will follow directly, say so. The skill will dispatch it without creating a coordinator monitor.
+
+For ready-to-copy prompts covering one delegated Task, multiple Tasks, an existing Task, and independent handoff, see [Prompt examples](docs/examples.md).
 
 ## State policy
 

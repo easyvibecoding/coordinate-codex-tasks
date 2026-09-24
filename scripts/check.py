@@ -13,6 +13,8 @@ REQUIRED = (
     "README.zh-TW.md",
     "CONTRIBUTING.md",
     "LICENSE",
+    "docs/examples.md",
+    "docs/examples.zh-TW.md",
     "docs/verification.md",
     "assets/social-preview.jpg",
 )
@@ -62,12 +64,12 @@ def main() -> None:
     require(re.search(r"^description:\s*\S", frontmatter, re.M) is not None, "missing skill description")
     require(re.search(r"\b(TODO|TBD|PLACEHOLDER)\b", skill, re.I) is None, "unfinished skill placeholder")
 
-    for name in ("README.md", "README.zh-TW.md"):
+    for name in ("README.md", "README.zh-TW.md", "docs/examples.md", "docs/examples.zh-TW.md"):
         text = (ROOT / name).read_text(encoding="utf-8")
         for link in re.findall(r"\]\(([^)]+)\)", text):
             if link.startswith(("https://", "http://", "#")):
                 continue
-            require((ROOT / link).exists(), f"broken local link in {name}: {link}")
+            require((ROOT / name).parent.joinpath(link).exists(), f"broken local link in {name}: {link}")
 
     image = (ROOT / "assets/social-preview.jpg").read_bytes()
     require(len(image) < 1_000_000, "social preview must be under 1 MB")

@@ -4,7 +4,7 @@
 
 **讓原本的 Codex Task 委派工作給另一個 Task，同時保留協調、驗收與結案責任的 skill。** 每個受託 Task 對應一個專屬 heartbeat；主 Task 依實際進度更新指示，完成驗收或需要使用者決策時停用該排程。
 
-[English](README.md) · [Skill 指示](SKILL.md) · [驗證紀錄](docs/verification.md)
+[English](README.md) · [提示詞範例](docs/examples.zh-TW.md) · [Skill 指示](SKILL.md) · [驗證紀錄](docs/verification.md)
 
 這是獨立的社群 skill，並非 OpenAI 官方產品。
 
@@ -38,6 +38,8 @@ cp coordinate-codex-tasks/SKILL.md "${CODEX_HOME:-$HOME/.codex}/skills/coordinat
 ```
 
 若新 Task 要由你自行追蹤，也請直接說明；這種情況不會建立主 Task 監控排程。
+
+需要可直接改寫的委派、複數 Task、續接既有 Task 等用法，請看[提示詞範例](docs/examples.zh-TW.md)。
 
 ## 狀態處理
 
