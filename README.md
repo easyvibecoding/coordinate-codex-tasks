@@ -37,13 +37,13 @@ mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills/coordinate-codex-tasks"
 cp coordinate-codex-tasks/SKILL.md "${CODEX_HOME:-$HOME/.codex}/skills/coordinate-codex-tasks/SKILL.md"
 ```
 
-Then start a new Codex Task so it can discover the skill. You can invoke it explicitly:
+Then start a new Codex Task so it can discover the skill. A plain-language request to create another Task can let the model select it from its description; you do not need to name the skill. For example:
 
 ```text
-Use $coordinate-codex-tasks. Create a separate Codex Task to implement the parser change. Keep this Task responsible for review and integration.
+Create a separate Codex Task to implement the parser change. Keep this Task responsible for integration and review, and follow the new Task's progress.
 ```
 
-For an independent Task that you will follow directly, say so. The skill will dispatch it without creating a coordinator monitor.
+The skill is model guidance, not a guaranteed hook on every Task creation. For an independent Task that you will follow directly, say so; that case does not call for a coordinator monitor.
 
 For ready-to-copy prompts covering one delegated Task, multiple Tasks, an existing Task, and independent handoff, see [Prompt examples](docs/examples.md).
 

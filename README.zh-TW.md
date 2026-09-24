@@ -31,13 +31,13 @@ mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills/coordinate-codex-tasks"
 cp coordinate-codex-tasks/SKILL.md "${CODEX_HOME:-$HOME/.codex}/skills/coordinate-codex-tasks/SKILL.md"
 ```
 
-在新的 Codex Task 中即可讓模型依描述選用；也可以明示：
+安裝後，在新的 Codex Task 中用一般語句要求另開 Task 即可讓模型依 skill 描述判斷是否選用；不必在提示詞寫出 skill 名稱。例如：
 
 ```text
-使用 $coordinate-codex-tasks。另開一個 Codex Task 實作 parser 修正，由目前 Task 負責審查與整合。
+請另開一個 Codex Task 實作 parser 修正。由目前這個 Task 負責整合與驗收，並追蹤新 Task 的進度。
 ```
 
-若新 Task 要由你自行追蹤，也請直接說明；這種情況不會建立主 Task 監控排程。
+Skill 是模型指引，並非每次建立 Task 都必定執行的鉤子。若新 Task 要由你自行追蹤，也請直接說明；這種情況不會建立主 Task 監控排程。
 
 需要可直接改寫的委派、複數 Task、續接既有 Task 等用法，請看[提示詞範例](docs/examples.zh-TW.md)。
 
