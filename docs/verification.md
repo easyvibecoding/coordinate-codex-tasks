@@ -7,6 +7,8 @@
 - Updating the first heartbeat left the second one's saved prompt and update timestamp unchanged.
 - Pausing the first heartbeat left the second `ACTIVE`; the second was then paused independently. Both saved statuses were read back as `PAUSED`.
 - An initially one-minute experimental cadence was changed to 15 minutes after user feedback. The executing Tasks were told to finish without waiting for the schedule.
+
+The 15-minute interval above records the experiment; it is not a current default. The current skill lets the coordinator choose and adjust intervals up to a 30-minute maximum. This ceiling expresses the user's cache-related preference; it is not a verified cache-retention guarantee.
 - The coordinator-only skill was validated with Codex skill-creator `quick_validate.py`.
 
 ## Not established by that experiment

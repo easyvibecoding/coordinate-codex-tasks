@@ -15,7 +15,7 @@ In the conversation that led to this skill, the user wrote this without naming i
 It names a coordinating Task, multiple new Tasks, and a scheduling experiment. For ordinary work, replace the experiment with concrete assignments and acceptance evidence:
 
 ```text
-Make this Task the coordinator. Create two separate GPT-6 Luna Codex Tasks for [work A] and [work B]. Keep integration and review here. Give each delegated Task its own monitor, update it when evidence changes, stay quiet when nothing changes, and pause each monitor after its assignment is verified.
+Make this Task the coordinator. Create two separate GPT-6 Luna Codex Tasks for [work A] and [work B]. Keep integration and review here. Give each delegated Task its own monitor. Adjust each interval to the worker's stage, never exceeding 30 minutes; stay quiet when nothing changes, and pause each monitor after its assignment is verified.
 ```
 
 ## 1. Delegate one new Task and keep review here
@@ -27,7 +27,7 @@ Create a separate Codex Task to complete [specific objective], limited to [files
 ## 2. Delegate two Tasks with separate monitors
 
 ```text
-Create two separate Codex Tasks. Task A owns [work, scope, acceptance evidence]; Task B owns [different work, scope, acceptance evidence]. They should not edit the same files. Keep integration and review in this Task. Give each delegated Task its own monitor, starting around a 15-minute interval for ordinary work. Stay quiet when nothing meaningful changes. Do not combine both Tasks into one monitor or ask the workers to manage scheduling.
+Create two separate Codex Tasks. Task A owns [work, scope, acceptance evidence]; Task B owns [different work, scope, acceptance evidence]. They should not edit the same files. Keep integration and review in this Task. Give each delegated Task its own monitor. Choose and adjust each interval based on the next useful checkpoint, never exceeding 30 minutes. Stay quiet when nothing meaningful changes. Do not combine both Tasks into one monitor or ask the workers to manage scheduling.
 ```
 
 ## 3. Continue an existing Task
