@@ -8,6 +8,6 @@ Issues and focused pull requests are welcome. Keep the skill small: add instruct
 2. Preserve explicit authorization for separate Task creation and external actions. The worker Task should not need to run this coordination skill.
 3. Keep each monitor scoped to one delegated Task, use a proportionate cadence, and avoid unchanged status chatter.
 4. Run `python3 scripts/check.py`. If you have the Codex skill-creator tooling locally, also run its `quick_validate.py` against the repository root.
-5. Describe what was actually tested. Do not present a packaging check or a manually updated automation as proof of autonomous scheduled wake behavior.
+5. Describe what was actually tested. Do not present a packaging check or a manually updated automation as proof of autonomous scheduled wake behavior. For role-identity checks, prefer fresh workers receiving ordinary assignments: calling the first message a "test" can prime the model to look for ambiguity. Use independent fresh Tasks before claiming a before/after reduction in failures.
 
 Please avoid including task transcripts, tokens, private paths, credentials, or production data in issues and pull requests.

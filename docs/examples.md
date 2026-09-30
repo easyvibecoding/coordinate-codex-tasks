@@ -48,4 +48,28 @@ Create a separate, independent Codex Task for [objective and acceptance evidence
 Create a separate Codex Task for [objective and acceptance evidence], while this Task remains responsible for final review. Do not create a scheduled monitor this time. During the current turn, use the available wait tool to follow progress and inspect the worker's actual result when needed.
 ```
 
+## Messages sent from coordinator to worker
+
+These are **messages the coordinating Task sends**, not extra prompts the user must type. The initial `create_thread` message cannot know the new Task ID yet, so it states the relationship first:
+
+```text
+Delegation roles: Coordinating Task [known coordinator ID or link] owns integration, verification, and the monitor. The recipient of this message is the newly created executing Task, which owns [assigned scope]; its Task ID will be assigned after creation.
+Assignment: [specific objective]. Acceptance evidence: [checkable result]. Report the result and blockers for the coordinator to review.
+```
+
+For a later `send_message_to_thread` call, both Task IDs are known. The recipient ID in the text must match the tool target:
+
+```text
+Delegation roles: Coordinating Task [coordinator Task ID] is the sender and owns integration, verification, and the monitor. Executing Task [worker Task ID] is the recipient and owns [assigned scope].
+Please complete [specific next step] and report [evidence]. The coordinator will review it.
+```
+
+A heartbeat prompt also identifies its recipient and monitored worker:
+
+```text
+Scheduled recipient: Coordinating Task [coordinator Task ID], which owns review and verification. Sole monitored worker: Executing Task [worker Task ID], which owns [assigned scope]. Read the worker's latest state and artifacts before deciding what to do next.
+```
+
+Avoid "this Task" as a name for the coordinator inside a cross-Task message: the worker may read it as referring to itself.
+
 Creating a new Task does not always call for a coordinator monitor. Monitoring depends on whether the current Task retains responsibility for follow-through and on your explicit instructions. These prompts do not reserve continuous model attention; scheduled wake-and-react behavior is bounded by the evidence in the [verification record](verification.md).

@@ -17,6 +17,7 @@ A separate Codex Task can keep working after its coordinator yields. The coordin
 - Creates a separate Task **only when the user explicitly requests one**.
 - Distinguishes an independent, user-owned Task from a Task delegated to complete part of the coordinator's assignment.
 - For delegated work, maintains a one-to-one mapping between worker Task and heartbeat. Multiple workers can have distinct heartbeats attached to the same coordinating Task.
+- Names the coordinating and executing Tasks in cross-Task messages, so a worker cannot mistake a forwarded "this Task" for the coordinator.
 - Lets the coordinator choose and adjust each monitor's interval based on the worker's stage and next useful checkpoint, with a 30-minute maximum for the user's cache-related constraint. Unchanged checks stay quiet; active coordination uses `wait_threads` instead of faster schedules.
 - Reads the worker's current state and relevant artifacts before updating the monitor prompt, giving a scoped correction, or pausing the monitor. A finished turn is not necessarily a finished assignment.
 - Leaves the worker focused on its work. The **coordinator** uses this skill; workers do not need to load it to manage their monitors.
